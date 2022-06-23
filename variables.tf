@@ -62,3 +62,9 @@ variable "test_secret_present" {
   description = "Boolean value to define if test secret should exist, if secret exists and this value is false, secret will be removed."
   default = true
 }
+
+variable "test_app_present" {
+  type = bool
+  description = "Boolean value to define if test app should exist, if app exists and this value is false, app will be removed."
+  default = true
+}

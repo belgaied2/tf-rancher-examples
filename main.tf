@@ -43,3 +43,18 @@ module "create_secret" {
   project_name = "test-project"
   cluster_name = "cluster-1"
 }
+
+
+module "create_app" {
+  count = var.test_app_present ? 1 : 0
+  source = "./07_create_project_app"
+  app_name = "custom-storage"
+  project_name = "Default"
+  cluster_name = "cluster-1"
+  catalog_name = "library"
+  template_name = "longhorn"
+  template_version = "1.2.4"
+  target_namespace = "longhorn-system"
+  
+
+}
