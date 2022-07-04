@@ -61,4 +61,13 @@ module "create_role_binding" {
   count = var.test_user_present ? 1 : 0
   source = "./08_create_global_role_binding"
   user_short_name = var.user_short_name
+  project_name = "test-project"#
+  cluster_name = "cluster-1"
+  list_global_roles = [ {
+    global_role_binding_name = "user-create-clusters"
+    global_role_id = "clusters-create"
+  }, {
+    global_role_binding_name = "user-use-catalogs"
+    global_role_id = "catalogs-use"
+  } ]
 }
