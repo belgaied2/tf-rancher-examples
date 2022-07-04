@@ -55,6 +55,10 @@ module "create_app" {
   template_name = "longhorn"
   template_version = "1.2.4"
   target_namespace = "longhorn-system"
-  
+}
 
+module "create_role_binding" {
+  count = var.test_user_present ? 1 : 0
+  source = "./08_create_global_role_binding"
+  user_short_name = var.user_short_name
 }
